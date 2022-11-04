@@ -6,4 +6,4 @@ myclass=cat
 my attribute are
 cat_color:(String)
 cat_breed:(String)
-cat_price:(Number)
+cat_price:(number)

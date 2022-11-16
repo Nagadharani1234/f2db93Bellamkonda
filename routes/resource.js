@@ -10,7 +10,7 @@ router.get('/', api_controller.api);
 // POST request for creating a Cat.
 router.post('/cats', cat_controller.cat_create_post);
 // DELETE request to delete Cat.
-//router.delete('/cats/:id', cat_controller.cat_delete);
+router.delete('/cats/:id', cat_controller.cat_delete);
 // PUT request to update Cat.
 router.put('/cats/:id', cat_controller.cat_update_put);
 // GET request for one Cat.

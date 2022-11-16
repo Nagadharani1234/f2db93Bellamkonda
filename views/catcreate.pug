@@ -1,0 +1,28 @@
+extends layout
+block content
+ h1= title
+ form(id='CatForm', action="/resource/cats", method="POST")
+  div.form-group
+   label.catAttr(for='cat_color') Cat Color
+   input#cat_color(type='text', name='cat_color')
+  div.form-group
+   label.catAttr(for='cat_breed') Cat Breed 
+   input#cat_breed(type='text', name='cat_breed')
+  div.form-group
+   label.catAttr(for='cat_price') Cat Cost 
+   input#cat_price(type='text', name='cat_price')
+  input(type="submit")
+ script.
+  document.forms['CatForm'].addEventListener('submit', (event) => {
+    event.preventDefault();
+    fetch(event.target.action, {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(event.target)) 
+    }).then((resp) => {
+        return resp.json();
+    }).then((body) => {
+        alert("Save succeded")
+    }).catch((error) => {
+        alert("Save failed " + error )
+    });
+   }); 
